@@ -52,31 +52,12 @@ export default {
       'desktop' : '1280px',
       'laptop' : '1008px',
       'tablet' : '640px',
+      'hp'     : '350px',
       'mobile' : '300px'
     }
   },
   plugins: [
     require('@tailwindcss/forms'),
-    // function ({addUtilities}) {
-    //   const newUtilities = {
-    //     ".scrollbar-webkit": {
-    //       "&::-webkit-scrollbar" : {
-    //         height: "6px",
-    //         innerWidth: "2px",
-    //         outerWidth: "2px",
-    //         width: "2px"
-    //       },
-    //       "&::-webkit-scrollbar-track": {
-    //         background : "transparent",
-    //       },
-    //       "&::-webkit-scrollbar-thumb": {
-    //         backgroundColor: "#DC2626",
-    //         borderRadius: "10px",
-    //       },
-    //     },
-    //   };
-    //   addUtilities(newUtilities, ["responsive","hover"]);
-    // }
   ],
 }
 

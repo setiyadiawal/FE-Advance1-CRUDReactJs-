@@ -10,11 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@tailwindcss/vite": "^4.0.9",
+    "antd": "^5.24.9",
+    "axios": "^1.9.0",
     "feather-icons": "^4.29.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-feather": "^2.0.10"
+    "react-feather": "^2.0.10",
+    "react-router": "^7.5.3",
+    "url-polyfill": "^1.1.13",
+    "uud": "^0.0.0",
+    "uuid": "^11.1.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

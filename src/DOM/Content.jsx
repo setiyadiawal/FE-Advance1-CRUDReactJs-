@@ -1,43 +1,8 @@
 import '../style/index.css'
-import { HeadForm } from "../Component/CompContent"
-import { LoginForm } from "../Component/CompContent"
-import { RegisterForm } from "../Component/CompContent"
+
 import { HeroBtn } from "../Component/CompButton"
 import { BannerInput } from "../Component/CompButton"
 import { CardContainer } from "../Component/CompContent"
-import card1 from "../assets/card-1.jpeg"
-import card2 from "../assets/card-2.jpeg"
-import card4 from "../assets/card-4.jpeg"
-import card5 from "../assets/card-5.jpeg"
-import card6 from "../assets/card-6.jpeg"
-import card9 from "../assets/card-9.jpeg"
-import avatar1 from "../assets/av1.png"
-import avatar2 from "../assets/av2.png"
-import avatar3 from "../assets/av3.png"
-import avatar4 from "../assets/av4.png"
-import avatar5 from "../assets/av5.png"
-import avatar6 from "../assets/av6.png"
-import avatar7 from "../assets/av7.png"
-import avatar8 from "../assets/av8.png"
-import avatar9 from "../assets/av9.png"
-
-export function ContentLogin () {
-    return (
-        <div className="py-9 px-9 bg-white border rounded flex flex-col justify-center items-center gap-9 w-full">
-            <HeadForm title="Masuk ke Akun" desc="Yuk, lanjutin belajarmu di videobelajar." />
-            <LoginForm/>
-        </div>
-    )
-}
-
-export function ContentRegistrasi () {
-    return (
-    <div className="py-9 px-9 bg-white border rounded flex flex-col justify-center items-center gap-9 w-full">
-        <HeadForm title="Pendaftaran Akun" desc="Yuk, daftarkan akunmu sekarang juga!" />
-        <RegisterForm/>
-    </div>
-    )
-}
 
 // Home's Components From this
 // Header
@@ -84,55 +49,14 @@ export function MenuBar () {
 }
       
 // Content Card List
-export function CardList () {
-
- const imgList = [
-    {
-        image : card1,
-        avatar : avatar1
-    },
-    {
-        image : card2,
-        avatar : avatar2
-    },
-    {
-        image : card9,
-        avatar : avatar3
-    },
-    {
-        image : card4,
-        avatar : avatar4
-    },
-    {
-        image : card5,
-        avatar : avatar5
-    },
-    {
-        image : card6,
-        avatar : avatar6
-    },
-    {
-        image : card2,
-        avatar : avatar7
-    },
-    {
-        image : card1,
-        avatar : avatar8
-    },
-    {
-        image : card9,
-        avatar : avatar9
-    },
-]
-
-
+export function CardList ({apiData, handleEdit, deleteData, isButton}) {
+   
     return (
-        <div className='w-full h-full flex flex-wrap justify-between items-center gap-6 mb-16'>
-
-        {imgList.map((item) =>
-            <CardContainer key={item.id} img={item.image} avatar={item.avatar}/>
-        )}
-
+        <div className='w-full h-full flex flex-wrap justify-start items-center gap-6 mb-16'>
+        { Object.values(apiData).map((item) =>
+            <CardContainer apiData={apiData} handleEdit={handleEdit} item={item} isButton={isButton} deleteData={deleteData} idData={item.id}
+            key={item.id} img={item.image} avatar={item.avatar} fullname={item.fullname} price={item.price} title={item.title} job={item.job} company={item.company} />
+            )}        
         </div>
     )
 }
