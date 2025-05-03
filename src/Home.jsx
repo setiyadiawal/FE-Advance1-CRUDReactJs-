@@ -28,16 +28,6 @@ import avatar6 from "./assets/av6.png"
 
 function Home() {
 
-
-// useEffect (() => {
-//     const check = () => {
-//       if (dataLama[0]) {
-//         setApiData(dataLama)
-//       }
-//     }
-//     check()
-// }, [])
-
 const [form] = Form.useForm()
 const [isOpen, setIsOpen] = useState(false)
 const [loading, setLoading] = useState(false)
@@ -50,7 +40,6 @@ const [apiData, setApiData] = useState([])
 const getAllData = async () => {
   setLoading(true)
   const getData = await getApi()
-  console.log('AAA NULL', apiData)
   
   setApiData(getData || {}); 
   setLoading(false)
@@ -119,13 +108,8 @@ const optionAvatar = [
 // POST and PUT API
 const saveData = async (e) => {
     try {
-
       // POST API
-      console.log('POST DATA DIMULAI', e)
-      console.log('POST DATA button', isButton) //false  true
-      console.log('POST DATA editing', !isEditing) //true   true
       if (isButton && !isEditing) {
-          console.log('POST DATA DIMULAI2')
           let addData = {
             id : uuidv4(), ...e };
 
@@ -157,12 +141,8 @@ const deleteData = async (id) => {
     } else {
       console.error("Firebase key tidak ditemukan, data gagal dihapus!");
     }
-    console.log('API DATA. Length', apiData.length)
     getAllData();// Perbarui state agar UI juga ikut berubah
     setIsButton(true)
-    console.log('DATA API NULL22', apiData)
-    
-
   }
     
 const [isAdd, setIsAdd] = useState(false);
@@ -252,9 +232,7 @@ useEffect(() => {
         <Form 
         form={form}
         style={{display: 'flex', flexDirection: 'column'}}
-        onFinish={(e) => {
-          console.log('DATA DITERIMA', e);
-          
+        onFinish={(e) => {          
             saveData(e);
             closeModal();
             form.resetFields();
